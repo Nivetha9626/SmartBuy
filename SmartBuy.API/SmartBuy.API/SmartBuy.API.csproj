@@ -21,7 +21,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\SmartBuy.Domain\SmartBuy.Domain.csproj" />
+	  <ProjectReference Include="..\SmartBuy.Dto\SmartBuy.Dto.csproj" />
 	  <ProjectReference Include="..\SmartBuy.Infrastructure\SmartBuy.Infrastructure.csproj" />
+	  <ProjectReference Include="..\SmartBuy.Service\SmartBuy.Service.csproj" />
 	</ItemGroup>
 
 </Project>

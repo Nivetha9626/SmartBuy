@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SmartBuy.Infrastructure;
+using SmartBuy.Service;
 
 namespace SmartBuy.API
 {
@@ -21,7 +22,8 @@ namespace SmartBuy.API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
-            services.AddInfrastructureServices(config.GetConnectionString());
+            services.AddInfrastructureServices(config.GetConnectionString("MyConnection"));
+            services.AddServicesDI();
 
             var app = builder.Build();
 

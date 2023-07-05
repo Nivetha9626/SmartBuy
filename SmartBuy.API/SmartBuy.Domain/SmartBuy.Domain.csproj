@@ -6,4 +6,8 @@
 		<Nullable>disable</Nullable>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\SmartBuy.Dto\SmartBuy.Dto.csproj" />
+	</ItemGroup>
+
 </Project>
