@@ -1,4 +1,10 @@
 
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using SmartBuy.Infrastructure;
+
 namespace SmartBuy.API
 {
     public class Program
@@ -9,11 +15,13 @@ namespace SmartBuy.API
             var config = builder.Configuration;
 
             // Add services to the container.
+
             var services = builder.Services;
             services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+            services.AddInfrastructureServices(config.GetConnectionString());
 
             var app = builder.Build();
 
