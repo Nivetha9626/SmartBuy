@@ -36,20 +36,36 @@ namespace SmartBuy.Service
         {
             //we have to do mapping using automapper
 
-            var product = new Product()
-            {
-                Id = productDto.Id,
-                Name = productDto.Name,
-                Price = productDto.Price,
-                Description = productDto.Description,
-                Stock = productDto.Stock,
-                CreatedBy = productDto.CreatedBy,
-                CreatedOn = productDto.CreatedOn,
-                ModifiedBy = productDto.ModifiedBy,
-                ModifiedOn = productDto.ModifiedOn,
-            };
+            var prod = GetProductById(productDto.Id);
 
-            product = _productRepo.Insert(product);
+            if (prod != null)
+            {
+                prod.Id = productDto.Id;
+                prod.Name = productDto.Name;
+                prod.Price = productDto.Price;
+                prod.Description = productDto.Description;
+                prod.Stock = productDto.Stock;
+                prod.ModifiedBy = productDto.ModifiedBy;
+                prod.ModifiedOn = productDto.ModifiedOn;
+                _productRepo.Update(prod);
+            }
+            else
+            {
+                var product = new Product()
+                {
+                    Name = productDto.Name,
+                    Price = productDto.Price,
+                    Description = productDto.Description,
+                    Stock = productDto.Stock,
+                    CreatedBy = productDto.CreatedBy,
+                    CreatedOn = productDto.CreatedOn,
+                    ModifiedBy = productDto.ModifiedBy,
+                    ModifiedOn = productDto.ModifiedOn,
+                };
+
+                product = _productRepo.Insert(product);
+            }
+
             _productRepo.CommitChanges();
             return product.Id;
         }

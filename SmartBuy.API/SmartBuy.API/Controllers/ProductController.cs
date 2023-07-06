@@ -5,7 +5,7 @@ using System;
 
 namespace SmartBuy.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/product")]
     [ApiController]
     public class ProductController : ControllerBase
     {
@@ -19,7 +19,8 @@ namespace SmartBuy.API.Controllers
         [HttpGet("list")]
         public IActionResult GetProducts()
         {
-            return Ok(_productService.GetProducts());
+            var products = _productService.GetProducts();
+            return Ok(products);
         }
 
         [HttpPost("save")]
@@ -28,14 +29,14 @@ namespace SmartBuy.API.Controllers
             return Ok(_productService.SaveProduct(productDto));
         }
 
-        [HttpGet]
-        public IActionResult GetProduct(Guid id)
+        [HttpGet("{id}")]
+        public IActionResult GetProduct([FromRoute] Guid id)
         {
             return Ok(_productService.GetProductById(id));
         }
 
-        [HttpDelete]
-        public IActionResult DeleteProduct(Guid id)
+        [HttpDelete("{id}")]
+        public IActionResult DeleteProduct([FromRoute] Guid id)
         {
             _productService.DeleteProductById(id);
             return Ok();

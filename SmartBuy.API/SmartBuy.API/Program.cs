@@ -12,12 +12,24 @@ namespace SmartBuy.API
     {
         public static void Main(string[] args)
         {
+
             var builder = WebApplication.CreateBuilder(args);
             var config = builder.Configuration;
 
             // Add services to the container.
 
             var services = builder.Services;
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAngularOrigins",
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                });
+            });
+
             services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
@@ -32,7 +44,9 @@ namespace SmartBuy.API
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+
             }
+            app.UseCors("AllowAngularOrigins");
 
             app.UseHttpsRedirection();
 

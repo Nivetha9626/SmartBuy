@@ -1,1 +1,5 @@
-<p>index works!</p>
+<div class="container">
+   <div style="margin:20px 0"><h3 class="d-inline">Products List</h3> <button routerLink="/product/new" class="btn btn-primary" style="float: right;">Add Product</button></div> 
+<app-my-grid [data]="gridData" (recordClickedToDelete)=deleteSelectedRecord($event)
+(recordClickedToEdit)="editSelectedRecord($event)"></app-my-grid>
+</div>
