@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SmartBuy.Domain.Interface
+namespace SmartBuy.Domain
 {
     public interface IOrderService
     {

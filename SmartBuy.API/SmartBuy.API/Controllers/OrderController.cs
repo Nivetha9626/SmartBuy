@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SmartBuy.Domain.Interface;
+using SmartBuy.Domain;
 using SmartBuy.Dto;
 using System;
 

@@ -1,5 +1,5 @@
 ﻿using SmartBuy.Domain;
-using SmartBuy.Domain.Interface;
+
 using SmartBuy.Dto;
 using System;
 using System.Collections.Generic;
@@ -22,6 +22,7 @@ namespace SmartBuy.Service
         {
             var cart = GetCartbyId(id);
             _cartRepo.Delete(cart);
+            _cartRepo.CommitChanges();
         }
 
         public IEnumerable<Cart> GetAllCarts()
@@ -47,6 +48,7 @@ namespace SmartBuy.Service
                 ModifiedOn = cartDto.ModifiedOn,
             };
             cart = _cartRepo.Insert(cart);
+            _cartRepo.CommitChanges();
             return cart.Id;
 
 

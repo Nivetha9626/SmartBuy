@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartBuy.Domain.Interface
+namespace SmartBuy.Domain
 {
     public interface ICartService
     {

@@ -1,5 +1,4 @@
 ﻿using SmartBuy.Domain;
-using SmartBuy.Domain.Interface;
 using SmartBuy.Dto;
 using System;
 using System.Collections.Generic;
@@ -21,6 +20,7 @@ namespace SmartBuy.Service
         {
             var order = GetOrderById(Id);
             _orderRepo.Delete(order);
+            _orderRepo.CommitChanges();
         }
 
         public IEnumerable<Order> GetAllOrders()
@@ -40,8 +40,6 @@ namespace SmartBuy.Service
             var order = new Order()
             {
                 Id = orderDto.Id,
-                ProductCount = orderDto.ProductCount,
-                UnitPrice = orderDto.UnitPrice,
                 TransactionId = orderDto.TransactionId,
                 CreatedBy = orderDto.CreatedBy,
                 CreatedOn = orderDto.CreatedOn,
@@ -49,7 +47,10 @@ namespace SmartBuy.Service
                 ModifiedOn = orderDto.ModifiedOn,
             };
 
-            return _orderRepo.Insert(order);
+            order = _orderRepo.Insert(order);
+            _orderRepo.CommitChanges();
+            return order;
+
         }
     }
 }

@@ -14,5 +14,6 @@ namespace SmartBuy.Domain
         void InsertBulk(IEnumerable<T> entities);
         void Update(T entity);
         void UpdateBulk(IEnumerable<T> entities);
+        void CommitChanges();
     }
 }

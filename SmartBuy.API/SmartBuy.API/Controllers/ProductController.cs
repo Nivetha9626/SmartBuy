@@ -9,9 +9,9 @@ namespace SmartBuy.API.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly ICustomerService _productService;
+        private readonly IProductService _productService;
 
-        public ProductController(ICustomerService productService)
+        public ProductController(IProductService productService)
         {
             _productService = productService;
         }

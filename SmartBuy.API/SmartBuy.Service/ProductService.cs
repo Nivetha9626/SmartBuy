@@ -29,6 +29,7 @@ namespace SmartBuy.Service
         {
             var product = GetProductById(id);
             _productRepo.Delete(product);
+            _productRepo.CommitChanges();
         }
 
         public Guid SaveProduct(ProductDto productDto)
@@ -49,6 +50,7 @@ namespace SmartBuy.Service
             };
 
             product = _productRepo.Insert(product);
+            _productRepo.CommitChanges();
             return product.Id;
         }
     }

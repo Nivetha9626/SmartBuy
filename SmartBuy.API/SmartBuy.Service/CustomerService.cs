@@ -29,6 +29,7 @@ namespace SmartBuy.Service
         {
             var customer = GetCustomerById(id);
             _customerRepo.Delete(customer);
+            _customerRepo.CommitChanges();
         }
 
         public Guid SaveCustomer(CustomerDto customerDto)
@@ -50,6 +51,7 @@ namespace SmartBuy.Service
             };
 
             customer = _customerRepo.Insert(customer);
+            _customerRepo.CommitChanges();
             return customer.Id;
         }
     }

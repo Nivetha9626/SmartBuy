@@ -8,11 +8,9 @@ namespace SmartBuy.Domain
 {
     public class Order : BaseIdAuditEntity
     {
-        public Guid ProductId { get; set; }
-        public int ProductCount { get; set; }
-        public decimal UnitPrice { get; set; }
-        public Guid CustomerId { get; set; }
         public Guid TransactionId { get; set; }
+        public Guid CustomerId { get; set; }
+
 
     }
 }

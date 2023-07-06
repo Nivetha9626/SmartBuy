@@ -84,5 +84,9 @@ namespace SmartBuy.Infrastructure
             this.entities.RemoveRange(entities);
         }
 
+        public void CommitChanges()
+        {
+            DbContext.SaveChanges();
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace SmartBuy.Infrastructure
             // var Configuration = builder.Build();
 
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=SmartBuyDB;Integrated Security=True");
+            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=SmartBuyDB;Integrated Security=True;TrustServerCertificate=True;");
 
             //optionsBuilder.UseSqlServer(Configuration.GetConnectionString(KnownString.ConnectionName));
 
