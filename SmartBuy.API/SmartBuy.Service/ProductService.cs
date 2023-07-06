@@ -37,6 +37,7 @@ namespace SmartBuy.Service
             //we have to do mapping using automapper
 
             var prod = GetProductById(productDto.Id);
+            var product = new Product();
 
             if (prod != null)
             {
@@ -51,17 +52,13 @@ namespace SmartBuy.Service
             }
             else
             {
-                var product = new Product()
-                {
-                    Name = productDto.Name,
-                    Price = productDto.Price,
-                    Description = productDto.Description,
-                    Stock = productDto.Stock,
-                    CreatedBy = productDto.CreatedBy,
-                    CreatedOn = productDto.CreatedOn,
-                    ModifiedBy = productDto.ModifiedBy,
-                    ModifiedOn = productDto.ModifiedOn,
-                };
+                product.Id = productDto.Id;
+                product.Name = productDto.Name;
+                product.Price = productDto.Price;
+                product.Description = productDto.Description;
+                product.Stock = productDto.Stock;
+                product.ModifiedBy = productDto.ModifiedBy;
+                product.ModifiedOn = productDto.ModifiedOn;
 
                 product = _productRepo.Insert(product);
             }
