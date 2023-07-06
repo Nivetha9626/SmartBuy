@@ -12,7 +12,7 @@ namespace SmartBuy.Service
     {
         public static IServiceCollection AddServicesDI(this IServiceCollection services)
         {
-            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ICustomerService, ProductService>();
 
             return services;
         }

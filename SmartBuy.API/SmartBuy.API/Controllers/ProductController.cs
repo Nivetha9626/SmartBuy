@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SmartBuy.Domain;
 using SmartBuy.Dto;
+using System;
 
 namespace SmartBuy.API.Controllers
 {
@@ -9,13 +9,12 @@ namespace SmartBuy.API.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IProductService _productService;
+        private readonly ICustomerService _productService;
 
-        public ProductController(IProductService productService)
+        public ProductController(ICustomerService productService)
         {
             _productService = productService;
         }
-
 
         [HttpGet("list")]
         public IActionResult GetProducts()
@@ -23,10 +22,23 @@ namespace SmartBuy.API.Controllers
             return Ok(_productService.GetProducts());
         }
 
-        [HttpGet("save")]
+        [HttpPost("save")]
         public IActionResult SaveProducts(ProductDto productDto)
         {
             return Ok(_productService.SaveProduct(productDto));
+        }
+
+        [HttpGet]
+        public IActionResult GetProduct(Guid id)
+        {
+            return Ok(_productService.GetProductById(id));
+        }
+
+        [HttpDelete]
+        public IActionResult DeleteProduct(Guid id)
+        {
+            _productService.DeleteProductById(id);
+            return Ok();
         }
     }
 }
