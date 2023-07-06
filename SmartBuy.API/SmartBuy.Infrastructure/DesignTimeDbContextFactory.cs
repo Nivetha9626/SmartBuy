@@ -19,7 +19,7 @@ namespace SmartBuy.Infrastructure
             //              .SetBasePath(Directory.GetCurrentDirectory())
             //              .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
-            //var Configuration = builder.Build();
+            // var Configuration = builder.Build();
 
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
             optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=SmartBuyDB;Integrated Security=True");

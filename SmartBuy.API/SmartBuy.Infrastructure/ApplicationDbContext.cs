@@ -20,6 +20,7 @@ namespace SmartBuy.Infrastructure
         //public DbSet<Order> Orders { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            _modelBuilder = modelBuilder;
             base.OnModelCreating(modelBuilder);
             SetProductConfig();
         }
