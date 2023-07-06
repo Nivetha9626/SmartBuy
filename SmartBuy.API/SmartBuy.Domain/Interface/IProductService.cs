@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SmartBuy.Domain
 {
-    public interface ICustomerService
+    public interface IProductService
     {
         void DeleteProductById(Guid id);
         Product GetProductById(Guid id);

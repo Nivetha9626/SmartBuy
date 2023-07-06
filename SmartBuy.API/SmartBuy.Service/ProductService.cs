@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace SmartBuy.Service
 {
-    public class ProductService : ICustomerService
+    public class ProductService : IProductService
     {
         private readonly IRepository<Product> _productRepo;
 
