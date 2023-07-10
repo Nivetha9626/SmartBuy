@@ -13,9 +13,6 @@ namespace SmartBuy.Service
         public static IServiceCollection AddServicesDI(this IServiceCollection services)
         {
             services.AddScoped<IProductService, ProductService>();
-            services.AddScoped<ICustomerService, CustomerService>();
-            services.AddScoped<IOrderService, OrderService>();
-            services.AddScoped<ICartService, CartService>();
 
             return services;
         }
